@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import re
 import pandas as pd
 
 years_and_pages = {
@@ -23,12 +24,20 @@ for year, total_pages in years_and_pages.items():
             
             if len(columns) >= 5:
                 uczestnik = columns[0].text.strip()
+
+                # Anonymize the 'Uczestnik' data
+                pattern_start = r'^.*? '
+                uczestnik = re.sub(pattern_start, 'XXX', uczestnik)
+                pattern_end = r" .*$"
+                uczestnik = re.sub(pattern_end, 'XXX', uczestnik)
+                
                 miejsce = columns[1].text.strip()
                 miejsce_wg_plci = columns[2].text.strip()
                 czas = columns[3].text.strip()
                 rocznik = columns[4].text.strip()
                 
                 data.append([year, uczestnik, miejsce, miejsce_wg_plci, czas, rocznik])
+
 
 df = pd.DataFrame(data, columns=['Year', 'Uczestnik', 'Miejsce', 'Miejsce wg płci', 'Czas', 'Rocznik'])
 

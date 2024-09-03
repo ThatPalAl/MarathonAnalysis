@@ -5,18 +5,17 @@ df = pd.read_csv('./polmaraton_results_all_years.csv')
 print(df.head())
 print(df['Uczestnik'][0])
 
-#'Cleaning Uczestnik':
-print(df.iloc[0])
-df['Uczestnik'] = df['Uczestnik'].str.replace('\n', '').str.replace(r'\s+', ' ', regex=True).str.strip()
+# #'Cleaning Uczestnik':
+# print(df.iloc[0])
+# df['Uczestnik'] = df['Uczestnik'].str.replace('\n', '').str.replace(r'\s+', ' ', regex=True).str.strip()
 
+# print(df.head(30))
+# pattern_uczestnik = r'^.*? '
+# df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik, 'XXX', regex=True)
+# print(df.head(30))
 
-print(df.head(30))
-pattern_uczestnik = r'^.*? '
-df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik, 'XXX', regex=True)
-print(df.head(30))
-
-pattern_uczestnik_end = r" .*$"
-df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik_end, 'XXX', regex=True)
+# pattern_uczestnik_end = r" .*$"
+# df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik_end, 'XXX', regex=True)
 
 #Cleaning year
 df = df.copy()
