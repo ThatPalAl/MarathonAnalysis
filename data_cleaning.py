@@ -5,18 +5,6 @@ df = pd.read_csv('./polmaraton_results_all_years.csv')
 print(df.head())
 print(df['Uczestnik'][0])
 
-# #'Cleaning Uczestnik':
-# print(df.iloc[0])
-# df['Uczestnik'] = df['Uczestnik'].str.replace('\n', '').str.replace(r'\s+', ' ', regex=True).str.strip()
-
-# print(df.head(30))
-# pattern_uczestnik = r'^.*? '
-# df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik, 'XXX', regex=True)
-# print(df.head(30))
-
-# pattern_uczestnik_end = r" .*$"
-# df['Uczestnik'] = df['Uczestnik'].str.replace(pattern_uczestnik_end, 'XXX', regex=True)
-
 #Cleaning year
 df = df.copy()
 print(df.keys())
@@ -24,6 +12,7 @@ pattern_year = r"pp"
 
 
 df['Year'] = df['Year'].str.replace(pattern_year, '', regex=True)
+
 #Assuming each half marathon took place after year 2000
 df['Year'] = '20' + df['Year']
 print(df.head(40))
@@ -47,8 +36,7 @@ df['czas_km'] = df['total_seconds'].apply(
 
 print(df.head())
 
-#Remove values which were only helpful for main columns
 df.drop(columns=['hours', 'minutes', 'seconds', 'total_seconds'], inplace=True)
 print(df.head())
-#Save the file for analitical operations
+
 df.to_csv('cleaned_polmaraton_results.csv', index = False)
