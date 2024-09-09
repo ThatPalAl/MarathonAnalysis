@@ -121,3 +121,27 @@ plt.ylabel('Number of Participants')
 plt.grid(True)
 plt.show()
 
+
+plt.figure(figsize=(8, 6))
+df['Time_Category'].value_counts().plot(kind='pie', autopct='%1.1f%%', colors=sns.color_palette('coolwarm', 6), startangle=90)
+plt.title('Race Time Categories Distribution')
+plt.ylabel('')  # Hide y-label to make chart cleaner
+plt.show()
+
+# age vs time - Area chart
+plt.figure(figsize=(10, 6))
+df.groupby('Wiek')['Czas_minutes'].mean().plot(kind='area', color='lightblue', alpha=0.6)
+plt.title('Average Time per Age Group')
+plt.xlabel('Age')
+plt.ylabel('Average Time (minutes)')
+plt.grid(True)
+plt.show()
+
+# Pace - age, bar chart 
+plt.figure(figsize=(10, 6))
+df.groupby('Wiek')['czas_km_minutes'].mean().plot(kind='bar', color='lightgreen', alpha=0.7)
+plt.title('Average Pace per Age Group')
+plt.xlabel('Age')
+plt.ylabel('Average Pace (minutes per km)')
+plt.grid(True)
+plt.show()
