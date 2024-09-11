@@ -25,7 +25,6 @@ for year, total_pages in years_and_pages.items():
             if len(columns) >= 5:
                 uczestnik = columns[0].text.strip()
 
-                # Anonymize the 'Uczestnik' data
                 pattern_start = r'^.*? '
                 uczestnik = re.sub(pattern_start, 'XXX', uczestnik)
                 pattern_end = r" .*$"
