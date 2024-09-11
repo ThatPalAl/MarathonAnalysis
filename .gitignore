@@ -1,0 +1,11 @@
+# Ignore Strava API credentials files
+strava_config_reset.py
+strava_setup.py
+
+# Python bytecode files
+__pycache__/
+*.py[cod]
+
+# Environment variables (if any)
+.env
+
