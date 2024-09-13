@@ -9,7 +9,8 @@ from plotting import (
     pace_categories_perKM,
     pace_pie_chart,
     age_v_time,
-    pace_chart
+    pace_chart,
+    average_pace_year
 )
 
 app = Flask(__name__)
@@ -34,6 +35,7 @@ def my_marathons():
     pace_pie_chart()
     age_v_time()
     pace_chart()
+    average_pace_year()
 
     return render_template('marathon_map.html')  
 

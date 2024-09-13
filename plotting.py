@@ -159,6 +159,16 @@ def pace_chart():
     plt.grid(True)
     save_plot('pace_chart.png')
 
+def average_pace_year():
+    plt.figure(figsize=(10,6))
+    df.groupby('Year')['czas_km_minutes'].mean().plot(kind = 'bar', color = 'lightblue', alpha =0.7)
+    plt.title('Average pace for each year')
+    plt.xlabel('Year')
+    plt.ylabel('Average pace per km')
+    plt.grid(True)
+    save_plot('average_pace_year.png')
+
+
 #generating:
 plot_race_times_hist()
 plot_race_time_categories()
@@ -168,3 +178,4 @@ pace_categories_perKM()
 pace_pie_chart()
 age_v_time()
 pace_chart()
+average_pace_year()

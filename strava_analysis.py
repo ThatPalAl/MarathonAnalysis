@@ -1,6 +1,7 @@
 import os
 import json
 import polyline
+import pandas as pd
 import folium
 from datetime import datetime
 
@@ -71,15 +72,22 @@ def analyze_activities():
 
     buttons_html = ''
 
+    df_workouts = pd.DataFrame()
+    df_workouts.columns = ('Workout_Name', 'Distance', 'Start_date', 'time')
     for activity in run_activities:
-        print(f"Name: {activity['name']}, Distance: {activity['distance']}")
+        print(activity['start_date'])
+        print(f"Name: {activity['name']}, Distance: {activity['distance']}, Start Date: {activity['start_date']}, elapsed time: {activity['elapsed_time']}")
+        df_workouts.add(activity['name'], activity['distance'], activity['start_date'], activity['elapsed_time'])
         map_name = plot_activity_map(activity, save_directory)
         if map_name:
             buttons_html += format_button_html(activity, map_name)
+    print(df_workouts.head(5))
 
     with open('templates/run_buttons.html', 'w') as f:
         f.write(buttons_html)
         print('Run buttons HTML written to templates/run_buttons.html')
+
+    
 
 
 if __name__ == '__main__':

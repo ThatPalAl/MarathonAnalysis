@@ -21,7 +21,6 @@ for year, total_pages in years_and_pages.items():
         table_body = soup.find('tbody', class_='fullList')
         for row in table_body.find_all('tr'):
             columns = row.find_all('td')
-            
             if len(columns) >= 5:
                 uczestnik = columns[0].text.strip()
 
