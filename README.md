@@ -5,6 +5,10 @@ As a passionate runner and data enthusiast, I'm combining my love for running wi
 Project Overview
 I'm analyzing race results from 2018, 2019, 2022, and 2023, focusing on trends and patterns in the performances of top athletes. Using Python for data manipulation and visualization, I’m exploring how the race has evolved over time.
 
+Current State (update 12.09.2024)
+I've synchronized all my Strava activity (only few runs, as previously I was using Nike Performance, and until now, I haven't found a proper solution to retrieve that data).
+Each workout has it's unique rendered button, which redirects to a plot map from a specific workout. Next goal is to label milestones on each generated route, make fun with some colors, by signaling which segments were run more and which less efficiently. 
+
 Future Plans
 Next, I plan to develop a machine learning model that correlates race results with weather data to predict outcomes for the 2024 event. Additionally, I’ll conduct an experimental simulation to predict my own performance in the race, using data from my training sessions.
 
